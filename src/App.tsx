@@ -1,4 +1,4 @@
-import { Route,BrowserRouter } from "react-router-dom";
+import { Route,Routes,BrowserRouter } from "react-router-dom";
 import {Home} from "./pages/Home";
 import {NewRoom} from "./pages/NewRoom";
 //import {NewRoom} from "./pages/NewRoom";
@@ -6,8 +6,10 @@ import {NewRoom} from "./pages/NewRoom";
 function App() {
   return (
       <BrowserRouter>
-        <Route path="/" exact component={Home} />
-        <Route path="/rooms/new" component={NewRoom} />
+    <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/rooms/new" element={<NewRoom/>} />
+    </Routes>
       </BrowserRouter>
   );
 }

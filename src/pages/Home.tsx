@@ -1,4 +1,4 @@
-import { useHistory } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 import  illustationImg from '../assets/images/illustration.svg';
 import logo from '../assets/images/logo.svg';
 import googleImg from '../assets/images/google-icon.svg';
@@ -6,12 +6,12 @@ import '../styles/auth.scss'
 import { Button } from "../components/Button";
 
 export function Home() {
-    const history = useHistory();
+    const navigate = useNavigate();
 
-  /*  function navegateHistory() {
-        history.push('/rooms/new');
-    }
-*/
+    // function navigateToNewRoom() {
+    //     history.push('/rooms/new');
+    // }
+
     return (
         <div id="page-auth">
             <aside>
@@ -21,9 +21,9 @@ export function Home() {
             </aside>
             <main>
                 <div className="main-content">
-                    <img src={logo} alt="Letmeask" />
+                    <img src={logo} alt="Letmeask-studies" />
                     <button onClick={()=>{
-                        history.push("/rooms/new");
+                        navigate("/rooms/new");
                     }} className="create-room">
                         <img src={googleImg} alt="Logo do Google" />
                         Crie sua sala com o Google
