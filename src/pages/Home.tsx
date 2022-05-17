@@ -4,13 +4,22 @@ import logo from '../assets/images/logo.svg';
 import googleImg from '../assets/images/google-icon.svg';
 import '../styles/auth.scss'
 import { Button } from "../components/Button";
+import {useAuth} from "../hooks/useAuth";
 
 export function Home() {
     const navigate = useNavigate();
+    const { user,signInGoogle } = useAuth()
 
-    // function navigateToNewRoom() {
-    //     history.push('/rooms/new');
-    // }
+    function loginAutenticate(){
+
+    }
+    async function handleCreateRoom(){
+        if(!user){
+           await signInGoogle()
+        }
+
+        navigate("/rooms/new");
+    }
 
     return (
         <div id="page-auth">
@@ -22,9 +31,7 @@ export function Home() {
             <main>
                 <div className="main-content">
                     <img src={logo} alt="Letmeask-studies" />
-                    <button onClick={()=>{
-                        navigate("/rooms/new");
-                    }} className="create-room">
+                    <button onClick={handleCreateRoom} className="create-room">
                         <img src={googleImg} alt="Logo do Google" />
                         Crie sua sala com o Google
                     </button>
